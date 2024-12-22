@@ -17,3 +17,6 @@ psql -h localhost -U postgres -p 5433 -d tellco <C:\telecom.sql
 ### Task 1 - User Overview Analysis 
 
 ### Task 2 - User Engagement Analysis
+
+### Task 3 - User Experience analysis
+### Task 4 - User Satisfaction Analysis

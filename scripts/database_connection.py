@@ -31,7 +31,10 @@ class DatabaseConn:
 
     @classmethod
     def get_session(cls):
-        """Return a new SQLAlchemy session."""
+        """Return a new SQLAlchemy session.
+            can be called using the engine created and will return a 
+            new session using the existing connection (engine)
+            """
         if cls._SessionLocal is None:
             cls._SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=cls.get_engine())
         return cls._SessionLocal()
