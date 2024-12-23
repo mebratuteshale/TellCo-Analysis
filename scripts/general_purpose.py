@@ -32,17 +32,17 @@ def fetch_data_as_dataframe(query: str):
         return pd.DataFrame()
     
 def group_dataframe(dataframe,groupbyColName):
-    top_handsets = (
-    dataframe[groupbyColName]
-    .value_counts()
-    )
+    df_grouped = (dataframe[groupbyColName])
+    return df_grouped
+
+
 def explore_dataframe(dataFrame):
     print(f"*************** Shape: {dataFrame.shape} ***************")
     print("**************** Info *****************************")
     print(dataFrame.info())
 
 
-def data_cleaning(dataFrame):
+def data_cleaning(dataFrame, colList):
     print("Dataset Info :",dataFrame.info())
     dupe_rows=dataFrame[dataFrame.duplicated()]
     if dupe_rows.empty:
@@ -50,6 +50,9 @@ def data_cleaning(dataFrame):
     else:
         print("Dupe rows :\n",dupe_rows)
         dataFrame.drop_duplicates()
+    for col in colList:
+        dataFrame.dropna(subset=[col], inplace=True)
+
     
 
 
